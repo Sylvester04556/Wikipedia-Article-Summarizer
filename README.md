@@ -37,6 +37,6 @@ Then enter any Wikipedia article title when prompted.
 ## How it works
 
 1. Fetches and cleans the Wikipedia article text
-2. Splits the text into chunks (~350 words each)
+2. Splits the text into chunks (~1000 words each)
 3. Summarizes each chunk using `llama3.2:1b`
 4. Merges all chunk summaries into one final summary
