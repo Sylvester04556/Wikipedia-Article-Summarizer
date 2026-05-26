@@ -1,9 +1,7 @@
-from data_fetcher import fetch_article_content
-def clean_text(title):
-    text = fetch_article_content(title)
-    if text:
+def clean_text(fetched_content):
+    if fetched_content:
         # Remove extra whitespace and newlines
-        cleaned_text = ' '.join(text.split())
+        cleaned_text = ' '.join(fetched_content.split())
         # return cleaned_text
         references_index = cleaned_text.find('References')
         if references_index != -1:
@@ -13,10 +11,11 @@ def clean_text(title):
 
     return cleaned_text
 
-def chunk_text(text, chunk_size=1000):
-    words = text.split()
+def chunk_text(cleaned_text, chunk_size=1000):
+    words = cleaned_text.split()
     chunks = []
     for i in range(0, len(words), chunk_size):
         chunk = ' '.join(words[i:i + chunk_size])
         chunks.append(chunk)
     return chunks
+
